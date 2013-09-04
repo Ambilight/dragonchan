@@ -6,6 +6,7 @@ $BossName = $this->BossName;
 <!DOCTYPE html>
 <html>
     <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link rel="stylesheet" type="text/css" href="http://css.ink.sapo.pt/v1/css/ink.css" />
 
 
@@ -13,7 +14,7 @@ $BossName = $this->BossName;
         <link href="site.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <a target="_blank" href="https://github.com/entomb/dragonchan"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+        <a target="_blank" href="https://github.com/Ambilight/dragonchain"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
         <div class="ink-container" style="width:90%;">
 
         <h2>Dragonchan <span class="small"><a href="http://boards.4chan.org/b/res/<?php echo $this->THREAD_ID; ?>">#<?php echo $this->THREAD_ID; ?></a></span>
@@ -242,26 +243,5 @@ $BossName = $this->BossName;
 
 
         </div>
-        <script type="text/javascript">
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-37723000-2']);
-          _gaq.push(['_trackPageview']);
-          _gaq.push(['_trackEvent', 'Log', 'Refresh']);
-
-          <?php
-          //log the cached status
-          if($this->cache_status){
-            echo "_gaq.push(['_trackEvent', 'Cache', 'hit']);";
-          }else{
-            echo "_gaq.push(['_trackEvent', 'Cache', 'miss']);";
-          }
-          ?>
-
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-        </script>
     </body>
 </html>

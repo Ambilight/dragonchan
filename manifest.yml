@@ -1,0 +1,14 @@
+--- 
+applications: 
+  .: 
+    mem: 128M
+    infra: eu-aws
+    framework: 
+      name: php
+      info: 
+        exec: 
+        description: PHP Application
+        mem: 128M
+    name: tfdragonquest
+    instances: 1
+    url: ${name}.${target-base}
