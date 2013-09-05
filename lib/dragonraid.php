@@ -734,7 +734,7 @@
                     'roll'   => $post->roll,
                     'class'  => $post->class,
                     'action' => $action,
-                    'target' => isset($post->_target) ? $post->id : 0,
+                    'target' => isset($post->_target) ? $post->_target : 0,
                     'damage' => isset($post->damage) ? $post->damage : 0,
                     'bonus'  => isset($post->bonus) ? $post->bonus : 0,
                 );
