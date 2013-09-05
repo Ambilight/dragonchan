@@ -1,7 +1,7 @@
 <tr>
     <td style="font-size:.8em;">
         <a target="_blank" href="<?php echo $_row['link']; ?>">
-            &gt;&gt;<?php echo $_row['post']; ?>
+            #<?php echo $_row['post']; ?>
         </a>
     </td>
 

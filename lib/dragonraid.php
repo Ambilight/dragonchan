@@ -107,7 +107,7 @@
             */
 
             //boss status
-            $this->BossIMG = "http://thumbs.4chan.org/b/thumb/".$this->OPost->tim."s.jpg";
+            $this->BossIMG = $this->OPost->filename;
             $this->setBossDifficulty('easy');
             $this->BossElement = self::getBossElement($this->OPost->no);
             $this->BossName = "RandomBeast";
@@ -180,7 +180,9 @@
 
                 //check and set nickname from command
                 if($nickname = self::checkForCommand('nickname@',$post)){
-                    $this->setNickname($post->id,$nickname);
+                    $this->setNickname($post->id, $nickname);
+                } else {
+                	$this->setNickname($post->id, $post->username);
                 }
 
                 //ignore fallen players with the exeption of deadknights
@@ -192,7 +194,7 @@
                 $this->bardBonusValue = $this->calculateBardBonus();
 
                 //add link to this roll
-                $post->link= "http://boards.4chan.org/b/res/".$this->THREAD_ID."#p".$post->no;
+                $post->link= "https://turbofilm.tv/Tlog/Posts/".$this->THREAD_ID."#comm".$post->no;
 
                 //GET THE CURRENT ROLL
                 $post->roll = self::roll($post->no,2);
@@ -302,7 +304,6 @@
                     $post->action = $action;
                     $this->log($action,$post);
                 }
-
 
             }
 
@@ -680,7 +681,7 @@
         * @param string $user_id  the user ID to map
         * @param string $nickname the desired nickname
         */
-        function setNickname($user_id,$nickname){
+        function setNickname($user_id, $nickname){
 
             // Stop fucking making names a dickyear long
             if(strlen($nickname) > 14) {
@@ -733,7 +734,7 @@
                     'roll'   => $post->roll,
                     'class'  => $post->class,
                     'action' => $action,
-                    'target' => isset($post->_target) ? $post->_target : 0,
+                    'target' => isset($post->_target) ? $post->id : 0,
                     'damage' => isset($post->damage) ? $post->damage : 0,
                     'bonus'  => isset($post->bonus) ? $post->bonus : 0,
                 );
@@ -992,7 +993,7 @@
             }
 
             //death knight
-            if(in_array($post_id[7],array('+','/'))){
+            if(in_array($post_id[strlen($post_id)-1],array('+','/'))){
                 return "DK";
             }
 
@@ -1018,6 +1019,7 @@
 
             //knight
             return "K";
+            
         }
 
 
